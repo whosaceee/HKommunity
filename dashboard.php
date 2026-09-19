@@ -57,13 +57,13 @@
                     <div class="profile-menu-label">PERSONAL</div>
 
                     <a href="#" class="profile-menu-item">
-                        <span class="menu-icon">⚙</span> Account Settings
+                        <i class="fa-solid fa-gear"></i> Account Settings
                     </a>
                     <a href="#" class="profile-menu-item">
-                        <span class="menu-icon">🔑</span> Change Password
+                        <i class="fa-solid fa-key"></i> Change Password
                     </a>
                     <a href="login.php" class="profile-menu-item danger">
-                        <span class="menu-icon">⏻</span> Log out
+                        <i class="fa-solid fa-sign-out"></i> Log out
                     </a>
                 </div>
             </div>
