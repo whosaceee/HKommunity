@@ -1,0 +1,462 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, Arial, sans-serif;
+    color: #173f2d;
+    background: #eef7f1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+/* ========================================
+   LANDING PAGE
+======================================== */
+
+.landing-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr .8fr;
+    align-items: center;
+    gap: 70px;
+    padding: 70px 7vw;
+    position: relative;
+    z-index: 2;
+}
+
+.landing-brand {
+    padding-left: 20px;
+    position: relative;
+}
+
+.landing-brand:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 116px;
+    border-radius: 4px;
+    background: #2f6b4d;
+}
+
+.landing-brand:after {
+    content: "";
+    position: absolute;
+    left: -80px;
+    top: -60px;
+    width: 700px;
+    height: 350px;
+    background: rgba(163, 220, 190, 0.20);
+    border-radius: 50%;
+    filter: blur(15px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.landing-brand h1 {
+    font-size: clamp(55px, 6vw, 76px);
+    line-height: .95;
+    letter-spacing: -4px;
+    font-weight: 800;
+    color: #123d2b;
+}
+
+.landing-brand h3,
+.landing-brand .tag {
+    font-size: 20px;
+    margin-top: 8px;
+    color: #245f44;
+}
+
+.landing-brand p {
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #456b5b;
+    margin-top: 38px;
+}
+
+.welcome-card {
+    width: min(380px, 100%);
+    min-height: 410px;
+    margin: auto;
+    background: rgba(255, 255, 255, .96);
+    border-radius: 18px;
+    padding: 70px 55px;
+    text-align: center;
+    box-shadow: 0 12px 25px rgba(43, 83, 62, .16);
+    border: 1px solid rgba(79, 147, 113, .18);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-card:before,
+.welcome-card:after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(73, 169, 128, .22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-card:before {
+    width: 160px;
+    height: 160px;
+    left: -70px;
+    bottom: -75px;
+}
+
+.welcome-card:after {
+    width: 110px;
+    height: 110px;
+    right: -45px;
+    top: -45px;
+}
+
+.welcome-card h2 {
+    font-size: 20px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.welcome-card h2 strong {
+    font-size: 27px;
+}
+
+.welcome-card p {
+    font-size: 10px;
+    color: #536b60;
+    margin-bottom: 35px;
+}
+
+.btn-outline {
+    margin-top: 12px;
+    border: 1px solid #bfd8ca;
+    color: #245f44;
+    background: white;
+}
+
+.btn-outline:hover {
+    background: #eef8f2;
+}
+
+@media (max-width: 800px) {
+    .landing-layout {
+        grid-template-columns: 1fr;
+        padding-top: 130px;
+        gap: 40px;
+    }
+
+    .landing-brand {
+        text-align: center;
+        padding: 0;
+    }
+
+    .landing-brand p {
+        margin: 25px auto;
+    }
+
+    .welcome-card {
+        margin-bottom: 40px;
+    }
+
+    .desktop {
+        display: none;
+    }
+}
+
+/* ================PAGE BACKGROUND (shared: landing / auth)=======================*/
+
+.page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 96% 2%, rgba(185, 235, 213, .65) 0 12%, transparent 12.2%),
+        radial-gradient(circle at 2% 100%, rgba(189, 236, 215, .58) 0 12%, transparent 12.2%),
+        linear-gradient(135deg, #f8fcf9, #e7f4ec);
+}
+
+.page:before,
+.page:after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(73, 169, 128, .22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.page:before {
+    width: 480px;
+    height: 480px;
+    left: -250px;
+    bottom: -260px;
+}
+
+.page:after {
+    width: 430px;
+    height: 430px;
+    right: -180px;
+    top: -220px;
+}
+
+.logo {
+    position: absolute;
+    left: 32px;
+    top: 36px;
+    width: 78px;
+    height: 78px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(40, 76, 52, .16);
+    z-index: 5;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.dots {
+    position: absolute;
+    width: 96px;
+    height: 78px;
+    background-image: radial-gradient(#75b89a 2.5px, transparent 2.5px);
+    background-size: 13px 13px;
+    opacity: .7;
+    z-index: 1;
+}
+
+.dots.one {
+    right: 72px;
+    top: 35px;
+}
+
+.dots.two {
+    left: 110px;
+    bottom: 60px;
+}
+
+.accent-pill {
+    position: absolute;
+    width: 230px;
+    height: 44px;
+    right: 90px;
+    bottom: 90px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, rgba(107, 178, 140, .38), rgba(107, 178, 140, 0));
+    transform: rotate(-28deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ==========AUTH LAYOUT (login / register)======================================== */
+
+
+.form-card {
+    width: min(455px, 100%);
+    margin: auto;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(79, 147, 113, .18);
+    border-radius: 19px;
+    padding: 38px 42px;
+    box-shadow: 0 12px 25px rgba(43, 83, 62, .16);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-card.wide {
+    width: min(800px, 96vw);
+    padding: 44px 55px;
+}
+
+.form-card:after {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    border: 1px solid rgba(92, 174, 136, .22);
+    border-radius: 50%;
+    right: -70px;
+    bottom: -55px;
+    pointer-events: none;
+}
+
+.form-card h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 7px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 10px;
+    color: #536b60;
+    margin-bottom: 27px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+
+
+label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+/* ---- shared field chrome for <input> and <select> ---- */
+input,
+select {
+    width: 100%;
+    height: 39px;
+    border: 1px solid #dce8e2;
+    border-radius: 7px;
+    padding: 0 12px;
+    font-size: 10px;
+    outline: none;
+    background: #fff;
+    color: #274d3c;
+}
+
+input:focus,
+select:focus {
+    border-color: #62a986;
+    box-shadow: 0 0 0 3px rgba(98, 169, 134, .1);
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #62a986 50%),
+        linear-gradient(135deg, #62a986 50%, transparent 50%);
+    background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 26px;
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon input,
+.input-icon select {
+    padding-left: 44px;
+}
+
+.input-icon > i,
+.input-icon > .text-icon {
+    position: absolute;
+    left: 8px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #eef6f1;
+    color: #2f6b4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: normal;
+    pointer-events: none;
+}
+
+.toggle-eye {
+    position: absolute;
+    right: 12px;
+    border: 0;
+    background: none;
+    padding: 0;
+    color: #8aa89a;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+}
+
+.toggle-eye:hover {
+    color: #35634e;
+}
+
+.forgot {
+    display: block;
+    text-align: right;
+    font-size: 9px;
+    font-weight: 600;
+    color: #35634e;
+    margin: -4px 0 18px;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-green {
+    background: #245f44;
+    color: #fff;
+    box-shadow: 0 3px 7px rgba(36, 95, 68, .18);
+}
+
+.bottom {
+    text-align: center;
+    font-size: 9px;
+    color: #586d64;
+    margin-top: 17px;
+    line-height: 2;
+}
+
+.bottom a {
+    font-weight: 700;
+    color: #245f44;
+}
+
+.hint {
+    font-size: 8px;
+    color: #75857e;
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+    .form-card.wide {
+        padding: 32px 24px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
